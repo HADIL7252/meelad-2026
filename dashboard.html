@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dahboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <header>
+    <h1>SKSBV DALIL UNIT MEELAD 2026</h1>
+    <p> Admin Dashboard</p>
+</header>
+
+<div class="login-box">
+
+<h2>Admin Panel</h2>
+<p>Select an option below</p>
+<div id="stats" class="row g-3">
+
+    <div class="col-md-3">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h5>👨‍🎓 Students</h5>
+                <h2 id="studentCount">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h5>📚 Programs</h5>
+                <h2 id="programCount">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h5>📝 Marks</h5>
+                <h2 id="marksCount">0</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h5>🏆 Winners</h5>
+                <h2 id="winnerCount">0</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="dashboard-grid">
+    <a href="admin.html">
+    <button>👨‍🎓Add Student</button>
+</a><br><br>
+
+
+    <a href="program.html">
+    <button>📚 Add Program</button>
+</a><br><br>
+
+    <a href="marks.html">
+    <button>📝 Enter Marks</button>
+</a><br><br>
+
+    <a href="results.html">
+    <button>🏆 Publish Results</button>
+</a><br><br>
+
+<a href="index.html">
+    <button>🏠 Home Page</button>
+</a><br><br>
+
+<a href="winners.html">
+    <button>🥇 Winners Page</button>
+</a><br><br>
+
+    <a href="schedule.html">
+    <button>📅 Schedule</button>
+</a>
+
+   
+    </div>
+
+
+
+</div>
+
+
+
+<button onclick="logout()">🚪 Logout</button>
+
+<script>
+function logout(){
+
+    sessionStorage.removeItem("adminLoggedIn");
+    localStorage.removeItem("loggedIn");
+
+    window.location.href = "login.html";
+
+}
+</script>
+
+
+<script type="module" src="dashboard.js"></script>
+    
+</body>
+</html>

@@ -1,32 +1,205 @@
-body{
-    font-family: Arial, sans-serif;
+*{
     margin:0;
-    background:#f5f5f5;
+    padding:0;
+    box-sizing:border-box;
 }
 
-header{
-    background:#0b5ed7;
-    color:white;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f7fb;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    max-width:1200px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    width:100%;
+    height:320px;
+    background:url("images/madina.png") center center/cover no-repeat;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:35px;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.hero-overlay{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.35);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:20px;
+    color:#fff;
 }
 
-section{
-    width:80%;
-    max-width:800px;
-    margin:20px auto;
-    background:white;
-    padding:20px;
+.hero-overlay h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.hero-overlay h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.hero-overlay p{
+    font-size:18px;
+}
+
+/* ================= GRID ================= */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:25px;
+}
+
+/* ================= CARD ================= */
+
+.menu-card{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 22px rgba(0,0,0,.10);
+    transition:.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-6px);
+}
+
+.menu-card h3{
+    color:#2563eb;
+    font-size:26px;
+    margin-bottom:12px;
+}
+
+.menu-card h4{
+    color:#111827;
+    font-size:46px;
+    font-weight:700;
+    text-transform:capitalize;
+    margin-top:10px;
+}
+
+.menu-card p{
+    color:#666;
+    line-height:1.6;
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+/* ================= CHAMPION ================= */
+
+.champion-card{
+    width:400px;
+    margin:20px auto 45px;
+    padding:35px;
+    background:#fff;
+    border-radius:24px;
+    text-align:center;
+    border-top:6px solid #f59e0b;
+    box-shadow:0 15px 35px rgba(37,99,235,.18);
+    transition:.3s;
+}
+
+.champion-card:hover{
+    transform:translateY(-8px);
+}
+
+.champion-card h3{
+    font-size:30px;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.champion-card h4{
+    font-size:52px;
+    color:#111827;
+    font-weight:bold;
+    text-transform:capitalize;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
     border-radius:10px;
-    box-shadow:0 0 10px #ccc;
+    background:#2563eb;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-h2{
-    color:#0b5ed7;
+button:hover{
+    background:#1d4ed8;
 }
+
+/* ================= FOOTER ================= */
 
 footer{
+    margin:60px 0 20px;
     text-align:center;
-    padding:20px;
-    color:#666;
+    color:#777;
+    font-size:15px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+    .container{
+        padding:15px;
+    }
+
+    .hero{
+        height:220px;
+        border-radius:0;
+    }
+
+    .hero-overlay h1{
+        font-size:32px;
+    }
+
+    .hero-overlay h2{
+        font-size:22px;
+    }
+
+    .hero-overlay p{
+        font-size:15px;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .champion-card{
+        width:100%;
+        max-width:340px;
+        padding:25px;
+        margin:20px auto;
+    }
+
+    .champion-card h4{
+        font-size:40px;
+    }
+
 }

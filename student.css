@@ -1,0 +1,104 @@
+body{
+    background:#f4f7fb;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.back-btn{
+    display:inline-block;
+    margin:20px;
+    color:#2563eb;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.page-header{
+    text-align:center;
+    margin:20px 0;
+}
+
+.page-header h1{
+    font-size:38px;
+    color:#1e3a8a;
+}
+
+.page-header p{
+    color:#666;
+    margin-top:8px;
+}
+
+.card{
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+    display:grid;
+    grid-template-columns:2fr 2fr 1.5fr auto auto;
+    gap:15px;
+    align-items:center;
+}
+
+.card input,
+.card select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+}
+
+#saveBtn,
+#cancelBtn{
+    padding:12px 20px;
+}
+
+#search{
+    display:block;
+    width:95%;
+    max-width:500px;
+    margin:25px auto;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+table{
+    width:95%;
+    margin:auto;
+    border-collapse:collapse;
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:14px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+}
+
+td button{
+    width:auto;
+    margin:2px;
+    padding:8px 14px;
+}
+
+@media(max-width:768px){
+
+.card{
+    grid-template-columns:1fr;
+}
+
+table{
+    font-size:14px;
+}
+
+}

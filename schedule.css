@@ -1,0 +1,75 @@
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    margin:0;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+input,button{
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    margin:5px;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.schedule-card{
+    background:white;
+    max-width:700px;
+    margin:15px auto;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.12);
+}
+
+.time{
+    color:#2563eb;
+    font-weight:bold;
+    font-size:20px;
+}
+
+#scheduleList{
+    max-width:700px;
+    margin:25px auto;
+}
+
+.schedule-card{
+    background:#fff;
+    border-left:6px solid #2563eb;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+    transition:.2s;
+}
+
+.schedule-card:hover{
+    transform:translateY(-2px);
+}
+
+.schedule-time{
+    font-size:20px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.schedule-program{
+    margin-top:8px;
+    font-size:17px;
+    color:#444;
+}

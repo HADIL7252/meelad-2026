@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Results</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table,th,td{
+    border:1px solid #000;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    font-size:16px;
+}
+
+@media print{
+button{
+display:none;
+}
+}
+</style>
+
+</head>
+<body>
+
+<h1>SKSBV DALIL UNIT MEELAD 2026</h1>
+
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Student</th>
+<th>Total Marks</th>
+</tr>
+</thead>
+
+<tbody id="printTable">
+
+</tbody>
+
+</table>
+
+<button onclick="window.print()">🖨 Print Results</button>
+
+<script type="module" src="print.js"></script>
+
+</body>
+</html>

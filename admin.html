@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - SKSBV DALIL UNIT</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        if (sessionStorage.getItem("adminLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 style="text-align:center;">SKSBV DALIL UNIT</h1>
+    <h2 style="text-align:center;">Admin Dashboard</h2>
+
+    <div class="dashboard-grid">
+
+        <div class="menu-card">
+            <h3>👨‍🎓 Students</h3>
+            <p>Manage Students</p>
+            <button onclick="window.location.href='student.html'">
+                Open
+            </button>
+        </div>
+
+        <div class="menu-card">
+            <h3>🎭 Programs</h3>
+            <p>Manage Programs</p>
+            <button onclick="window.location.href='program.html'">
+                Open
+            </button>
+        </div>
+
+        <div class="menu-card">
+            <h3>📝 Marks</h3>
+            <p>Manage Marks</p>
+            <button onclick="window.location.href='marks.html'">
+                Open
+            </button>
+        </div>
+
+        <div class="menu-card">
+            <h3>📅 Schedule</h3>
+            <p>Manage Schedule</p>
+            <button onclick="window.location.href='schedule.html'">
+                Open
+            </button>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <button onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+function logout() {
+    sessionStorage.removeItem("adminLoggedIn");
+    localStorage.removeItem("loggedIn");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

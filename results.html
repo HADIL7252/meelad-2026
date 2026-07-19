@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="results.css">
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← Home</a>
+
+<div class="page-header">
+    <h1>🏆 Results</h1>
+    <p>SKSBV DALIL UNIT – Meelad 2026</p>
+</div>
+
+<div id="topWinners"></div>
+
+<br>
+
+<select id="categoryFilter">
+    <option value="All">All Categories</option>
+    <option value="Kidees">Kidees</option>
+    <option value="Sub Junior">Sub Junior</option>
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+    <option value="Super Senior">Super Senior</option>
+</select>
+
+<br><br>
+
+<input
+    type="text"
+    id="searchStudent"
+    placeholder="🔍 Search Student"
+>
+
+<br><br>
+
+<table border="1" width="100%">
+    <thead>
+        <tr>
+            <th>🏆 Rank</th>
+            <th>Student</th>
+            <th>Category</th>
+            <th>Total Mark</th>
+        </tr>
+    </thead>
+
+    <tbody id="resultsList"></tbody>
+</table>
+
+<br>
+
+<button onclick="window.print()">🖨️ Print Results</button>
+
+<footer>
+    © 2026 SKSBV DALIL UNIT | Developed by <strong>Hadil</strong>
+</footer>
+
+<script type="module" src="results.js"></script>
+
+</body>
+</html>

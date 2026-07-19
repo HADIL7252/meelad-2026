@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="marks.css">
+</head>
+<body>
+
+<a href="index.html">← Home</a>
+
+<br><br>
+
+<h2>Enter Marks</h2>
+
+<div id="adminMarks">
+
+    <select id="student"></select>
+
+    <br><br>
+
+    <select id="program"></select>
+
+    <br><br>
+
+    <input
+        type="number"
+        id="mark"
+        placeholder="Enter Mark"
+    >
+
+    <br><br>
+
+    <button id="saveMark">Save Mark</button>
+
+    <input type="hidden" id="edited">
+
+    <button id="cancelBtn" style="display:none;">
+        Cancel
+    </button>
+
+    <hr>
+
+</div>
+
+<input
+    type="text"
+    id="searchMark"
+    placeholder="🔍 Search Student or Program"
+>
+
+<br><br>
+
+<h3>Marks List</h3>
+
+<table border="1" width="100%">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Program</th>
+            <th>Mark</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody id="marksList"></tbody>
+</table>
+
+<script type="module" src="marks.js"></script>
+
+</body>
+</html>
