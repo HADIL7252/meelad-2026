@@ -1,3 +1,91 @@
+.results-page{
+    max-width:1200px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-bottom:20px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.page-header{
+    background:#ffffff;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.page-header h1{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.page-header p{
+    color:#666;
+}
+
+.top-winners{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.winner-card{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 8px 18px rgba(0,0,0,.10);
+}
+
+.gold-card{
+    border-top:6px solid gold;
+}
+
+.silver-card{
+    border-top:6px solid silver;
+}
+
+.bronze-card{
+    border-top:6px solid #cd7f32;
+}
+
+.filter-box{
+    background:#fff;
+    padding:18px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+.filter-box input,
+.filter-box select{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+}
+
+th{
+    background:#2563eb;
+    color:#fff;
+}
+
+th,
+td{
+    padding:14px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f7f9fc;
+}
+
 *{
     margin:0;
     padding:0;

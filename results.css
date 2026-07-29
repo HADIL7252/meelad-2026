@@ -1,124 +1,32 @@
 /* ===========================
-   RESULTS PAGE
+   MOBILE
 =========================== */
 
-body{
-    background:#f5f7fb;
-    font-family:Segoe UI,Arial,sans-serif;
-    padding:25px;
-}
-
-/* Back Button */
-
-.back-btn{
-    display:inline-block;
-    padding:10px 18px;
-    background:#0b5ed7;
-    color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-.back-btn:hover{
-    background:#084298;
-}
-
-/* Header */
-
-.page-header{
-    background:#0b5ed7;
-    color:#fff;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    margin-bottom:30px;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
-
-.page-header h1{
-    margin:0;
-    color:#fff;
-    font-size:34px;
-}
-
-.page-header p{
-    margin-top:10px;
-    color:#e9ecef;
-}
-
-/* Winner Cards */
-
-#topWinners{
+.filter-box{
     display:flex;
+    gap:15px;
+    align-items:center;
+    margin-bottom:20px;
     flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
-    margin-bottom:30px;
 }
 
-.winner-card{
-    width:250px;
-    padding:25px;
-    background:#fff;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-    transition:.3s;
+.filter-box select{
+    width:220px;
 }
 
-.winner-card:hover{
-    transform:translateY(-6px);
+.filter-box input{
+    flex:1;
 }
 
-.winner-card h2{
-    color:#0b5ed7;
-    margin:12px 0;
-}
-
-.winner-card p{
-    color:#555;
-}
-
-/* Medal */
-
-.gold-card{
-    border-top:8px solid gold;
-}
-
-.silver-card{
-    border-top:8px solid silver;
-}
-
-.bronze-card{
-    border-top:8px solid #cd7f32;
-}
-
-/* Search */
-
-input{
+.table-container{
     width:100%;
-    max-width:600px;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    font-size:16px;
+    overflow-x:auto;
+    border-radius:15px;
 }
-
-/* Select */
-
-select{
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    font-size:16px;
-}
-
-/* Table */
 
 table{
     width:100%;
+    min-width:650px;
     border-collapse:collapse;
     background:#fff;
     border-radius:15px;
@@ -126,71 +34,70 @@ table{
     box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
-th{
-    background:#0b5ed7;
-    color:#fff;
-    padding:15px;
-}
-
-td{
-    padding:15px;
-    text-align:center;
-    border-bottom:1px solid #eee;
-}
-
-tr:hover{
-    background:#eef5ff;
-}
-
-/* Print Button */
-
-button{
+.print-btn{
     display:block;
     margin:30px auto;
     width:250px;
 }
 
-/* Footer */
-
-footer{
-    text-align:center;
-    margin-top:30px;
-    color:#666;
-}
-
-/* Mobile */
-
 @media(max-width:768px){
 
     body{
-        padding:15px;
+        padding:12px;
+    }
+
+    .page-header{
+        padding:18px;
+    }
+
+    .page-header h1{
+        font-size:24px;
+    }
+
+    .page-header p{
+        font-size:14px;
     }
 
     .winner-card{
         width:100%;
+        padding:18px;
+    }
+
+    .filter-box{
+        flex-direction:column;
+    }
+
+    .filter-box select,
+    .filter-box input{
+        width:100%;
+    }
+
+    .table-container{
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
     }
 
     table{
-        font-size:14px;
+        min-width:600px;
     }
 
     th,
     td{
         padding:10px;
+        font-size:14px;
+        white-space:nowrap;
     }
 
-    input{
-        max-width:100%;
+    .print-btn{
+        width:100%;
     }
 
 }
 
-/* Print */
-
 @media print{
 
     .back-btn,
-    button,
+    .print-btn,
     input,
     select,
     footer{
@@ -212,4 +119,105 @@ footer{
     td{
         border:1px solid #000;
     }
+
+}
+/* ===========================
+   MOBILE RESULT CARDS
+=========================== */
+
+.results-cards{
+    display:none;
+}
+
+.result-card{
+    background:#fff;
+    border-radius:18px;
+    padding:16px;
+    margin-bottom:15px;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    border-left:6px solid #0d6efd;
+    animation:fadeUp .25s ease;
+}
+
+.result-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.rank-badge{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#0d6efd;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.mark-badge{
+    background:#198754;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:30px;
+    font-weight:700;
+}
+
+.result-name{
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:8px;
+    color:#222;
+}
+
+.result-category{
+    display:inline-block;
+    background:#eef4ff;
+    color:#0d6efd;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .desktop-view{
+        display:none;
+    }
+
+    .results-cards{
+        display:block;
+    }
+
+}
+
+@media(min-width:769px){
+
+    .results-cards{
+        display:none;
+    }
+
+    .desktop-view{
+        display:block;
+    }
+
 }

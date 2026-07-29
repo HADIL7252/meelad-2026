@@ -28,6 +28,7 @@ if (adminMarks) {
 
 const studentsMap = {};
 const programsMap = {};
+const allPrograms = [];
 
 async function loadStudents() {
 
@@ -39,7 +40,11 @@ async function loadStudents() {
 
         const student = studentDoc.data();
 
-        studentsMap[studentDoc.id] = student.name;
+        studentsMap[studentDoc.id] = {
+            name: student.name,
+            category: student.category,
+            gender: student.gender
+        };
 
         studentSelect.innerHTML += `
         <option value="${studentDoc.id}">
@@ -49,26 +54,64 @@ async function loadStudents() {
 
 }
 
+
 async function loadPrograms() {
 
     const snap = await getDocs(collection(db, "programs"));
 
-    programSelect.innerHTML = "";
+    allPrograms.length = 0;
+
 
     snap.forEach((programDoc) => {
 
         const program = programDoc.data();
 
+        allPrograms.push({
+            id: programDoc.id,
+            name: program.name,
+            category: program.category,
+            group: program.group
+        });
+
         programsMap[programDoc.id] = program.name;
 
-        programSelect.innerHTML += `
-        <option value="${programDoc.id}">
-            ${program.name}
-        </option>`;
     });
+
+    filterPrograms();
 
 }
 
+function filterPrograms() {
+
+    const student = studentsMap[studentSelect.value];
+
+    if (!student) return;
+
+    programSelect.innerHTML = "";
+
+    allPrograms.forEach((program) => {
+
+        if (program.category !== student.category) return;
+
+        if (
+            student.gender === "Boy" &&
+            program.group === "Girls"
+        ) return;
+
+        if (
+            student.gender === "Girl" &&
+            program.group === "Boys"
+        ) return;
+
+        programSelect.innerHTML += `
+            <option value="${program.id}">
+                ${program.name}
+            </option>
+        `;
+
+    });
+
+}
 async function loadMarks() {
 
     const snap = await getDocs(collection(db, "marks"));
@@ -81,9 +124,8 @@ async function loadMarks() {
 
         const mark = markDoc.data();
 
-        const studentName = studentsMap[mark.studentId] || "";
-        const programName = programsMap[mark.programId] || "";
-
+        const studentName = studentsMap[mark.studentId]?.name || "";
+const programName = programsMap[mark.programId] || "";
         if (
             !studentName.toLowerCase().includes(keyword) &&
             !programName.toLowerCase().includes(keyword)
@@ -163,8 +205,11 @@ window.editMark = function(id, studentId, programId, mark) {
     edited.value = id;
 
     studentSelect.value = studentId;
-    programSelect.value = programId;
-    markInput.value = mark;
+
+
+filterPrograms();
+
+programSelect.value = programId;
 
     saveMark.textContent = "Update Mark";
 
@@ -207,5 +252,7 @@ async function start() {
     await loadMarks();
 
 }
+
+studentSelect.addEventListener("change", filterPrograms);
 
 start();

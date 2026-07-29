@@ -151,3 +151,4 @@ init();
 
 categoryFilter.addEventListener("change", loadResults);
 searchStudent.addEventListener("input", loadResults);
+

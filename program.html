@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs</title>
+
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
@@ -17,45 +18,86 @@
 
     <h2>Add Program</h2>
 
-    <input type="text" id="programName" placeholder="Program Name">
+    <input
+        type="text"
+        id="programName"
+        placeholder="Program Name"
+    >
 
     <br><br>
 
-    <button id="saveProgram">Save Program</button>
+    <select id="category">
+        <option value="">Select Category</option>
+        <option>Kidees</option>
+        <option>Sub Junior</option>
+        <option>Junior</option>
+        <option>Senior</option>
+        <option>Super Senior</option>
+    </select>
 
-    <input type="hidden" id="edited">
+    <br><br>
 
-<button id="cancelBtn" style="display:none;">
-    Cancel
-</button>
+    <select id="group">
+        <option value="">Select Group</option>
+        <option value="Common">Common (Boys & Girls)</option>
+        <option value="Boys">Boys Only</option>
+        <option value="Girls">Girls Only</option>
+    </select>
+
+    <br><br>
+
+    <button id="saveProgram">
+        Save Program
+    </button>
+
+    <input
+        type="hidden"
+        id="edited"
+    >
+
+    <button
+        id="cancelBtn"
+        style="display:none;"
+    >
+        Cancel
+    </button>
 
     <hr>
 
     <input
-    type="text"
-    id="searchProgram"
-    placeholder="🔍 Search Program"
->
+        type="text"
+        id="searchProgram"
+        placeholder="🔍 Search Program"
+    >
 
-<br><br>
+    <br><br>
 
-<h3>Program List</h3>
+    <h3>Program List</h3>
 
-<table border="1" width="100%">
-    <thead>
-        <tr>
-            <th>Program Name</th>
-            <th>Action</th>
-        </tr>
-    </thead>
+    <table border="1" width="100%">
 
-    <tbody id="programList"></tbody>
-</table>
+        <thead>
+
+            <tr>
+
+                <th>Program</th>
+                <th>Category</th>
+                <th>Group</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="programList">
+
+        </tbody>
+
+    </table>
 
 </div>
 
 <script type="module" src="program.js"></script>
 
 </body>
-
 </html>

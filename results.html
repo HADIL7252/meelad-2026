@@ -1,63 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | Meelad 2026</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="results.css">
 </head>
 <body>
 
-    <a href="index.html" class="back-btn">← Home</a>
+<div class="results-page">
 
-<div class="page-header">
-    <h1>🏆 Results</h1>
-    <p>SKSBV DALIL UNIT – Meelad 2026</p>
+    <a href="index.html" class="back-btn">
+        ← Home
+    </a>
+
+    <header class="page-header">
+
+        <h1>🏆 Results</h1>
+
+        <p>
+            SKSBV DALIL UNIT • Meelad 2026
+        </p>
+
+    </header>
+
+
+    <!-- Champion Cards -->
+
+    <section id="topWinners" class="top-winners">
+
+    </section>
+
+
+    <!-- Search + Filter -->
+
+    <section class="filter-box">
+
+        <select id="categoryFilter">
+
+            <option value="All">All Categories</option>
+
+            <option value="Kidees">
+                Kidees
+            </option>
+
+            <option value="Sub Junior">
+                Sub Junior
+            </option>
+
+            <option value="Junior">
+                Junior
+            </option>
+
+            <option value="Senior">
+                Senior
+            </option>
+
+            <option value="Super Senior">
+                Super Senior
+            </option>
+
+        </select>
+
+
+        <input
+            type="text"
+            id="searchStudent"
+            placeholder="🔍 Search Student">
+
+    </section>
+
+
+
+    <!-- Desktop Table -->
+
+    <section class="desktop-view">
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>🏆 Rank</th>
+
+                        <th>Student</th>
+
+                        <th>Category</th>
+
+                        <th>Total Mark</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="resultsList">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Mobile Cards -->
+
+    <section
+        id="resultsCards"
+        class="results-cards">
+
+    </section>
+
+
+
+    <button
+        class="print-btn"
+        onclick="window.print()">
+
+        🖨️ Print Results
+
+    </button>
+
+
+
+    <footer>
+
+        © 2026 SKSBV DALIL UNIT
+
+        <br><br>
+
+        Developed by <strong>Hadil</strong>
+
+    </footer>
+
 </div>
-
-<div id="topWinners"></div>
-
-<br>
-
-<select id="categoryFilter">
-    <option value="All">All Categories</option>
-    <option value="Kidees">Kidees</option>
-    <option value="Sub Junior">Sub Junior</option>
-    <option value="Junior">Junior</option>
-    <option value="Senior">Senior</option>
-    <option value="Super Senior">Super Senior</option>
-</select>
-
-<br><br>
-
-<input
-    type="text"
-    id="searchStudent"
-    placeholder="🔍 Search Student"
->
-
-<br><br>
-
-<table border="1" width="100%">
-    <thead>
-        <tr>
-            <th>🏆 Rank</th>
-            <th>Student</th>
-            <th>Category</th>
-            <th>Total Mark</th>
-        </tr>
-    </thead>
-
-    <tbody id="resultsList"></tbody>
-</table>
-
-<br>
-
-<button onclick="window.print()">🖨️ Print Results</button>
-
-<footer>
-    © 2026 SKSBV DALIL UNIT | Developed by <strong>Hadil</strong>
-</footer>
 
 <script type="module" src="results.js"></script>
 

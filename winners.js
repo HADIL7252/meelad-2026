@@ -18,17 +18,17 @@ async function loadStudents() {
         const student = doc.data();
 
         studentsMap[doc.id] = {
-            name: student.name,
-            category: student.category
+            name: student.name || "Unknown",
+            category: student.category || "-"
         };
 
     });
 
 }
 
-loadStudents();
-
 async function loadWinners() {
+
+    winnersList.innerHTML = "";
 
     const totals = {};
 
@@ -42,42 +42,60 @@ async function loadWinners() {
             totals[mark.studentId] = 0;
         }
 
-        totals[mark.studentId] += mark.mark;
+        totals[mark.studentId] += Number(mark.mark);
 
     });
 
-    
+    const categoryWinners = {};
 
-const sorted = Object.entries(totals).sort((a, b) => b[1] - a[1]);
-let rank = 1;
+    Object.entries(totals).forEach(([id, total]) => {
 
-sorted.forEach(([id, total]) => {
+        if (!studentsMap[id]) return;
 
-   winnersList.innerHTML += `
-<div class="winner-card">
-    <div class="rank">
-        ${
-            rank === 1 ? "🥇" :
-            rank === 2 ? "🥈" :
-            rank === 3 ? "🥉" :
-            "🏅"
+        const category = studentsMap[id].category;
+
+        if (
+            !categoryWinners[category] ||
+            total > categoryWinners[category].total
+        ) {
+
+            categoryWinners[category] = {
+                name: studentsMap[id].name,
+                total: total
+            };
+
         }
-    </div>
 
-    <div class="winner-info">
-        <h3>${studentsMap[id].name}</h3>
-        <p>${studentsMap[id].category}</p>
-    </div>
+    });
 
-    <div class="winner-score">
-        ${total} Marks
-    </div>
+    Object.entries(categoryWinners).forEach(([category, winner]) => {
 
-    `;
+        winnersList.innerHTML += `
+            <div class="winner-card">
 
-    rank++;
+                <div class="rank">🏆</div>
 
-});
+                <div class="winner-info">
+                    <h3>${winner.name}</h3>
+                    <p>${category}</p>
+                </div>
+
+                <div class="winner-score">
+                    ${winner.total} Marks
+                </div>
+
+            </div>
+        `;
+
+    });
+
 }
 
-loadWinners();
+async function init() {
+
+    await loadStudents();
+    await loadWinners();
+
+}
+
+init();

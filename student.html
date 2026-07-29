@@ -33,6 +33,7 @@
     >
 
     <select id="category">
+        <option value="">Select Category</option>
         <option>Kidees</option>
         <option>Sub Junior</option>
         <option>Junior</option>
@@ -40,11 +41,17 @@
         <option>Super Senior</option>
     </select>
 
+    <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="Boy">👦 Boy</option>
+        <option value="Girl">👧 Girl</option>
+    </select>
+
     <input type="hidden" id="editedStudent">
 
-<button id="cancelBtn" style="display:none;">
-    Cancel
-</button>
+    <button id="cancelBtn" style="display:none;">
+        Cancel
+    </button>
 
     <button id="saveBtn">
         Save Student
@@ -71,6 +78,7 @@
 <th>Name</th>
 <th>Father</th>
 <th>Category</th>
+<th>Gender</th>
 <th>Action</th>
 
 </tr>

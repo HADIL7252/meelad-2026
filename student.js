@@ -12,6 +12,8 @@ import {
 const name = document.getElementById("name");
 const father = document.getElementById("father");
 const category = document.getElementById("category");
+const gender = document.getElementById("gender");
+
 const saveBtn = document.getElementById("saveBtn");
 const editedStudent = document.getElementById("editedStudent");
 const cancelBtn = document.getElementById("cancelBtn");
@@ -37,13 +39,15 @@ async function loadStudents() {
             <td>${student.name}</td>
             <td>${student.father}</td>
             <td>${student.category}</td>
+            <td>${student.gender || "-"}</td>
 
             <td>
                 <button onclick="editStudent(
                     '${studentDoc.id}',
                     '${student.name}',
                     '${student.father}',
-                    '${student.category}'
+                    '${student.category}',
+                    '${student.gender || ""}'
                 )">
                     Edit
                 </button>
@@ -60,7 +64,12 @@ async function loadStudents() {
 
 saveBtn.addEventListener("click", async () => {
 
-    if (name.value.trim() === "" || father.value.trim() === "") {
+    if (
+        name.value.trim() === "" ||
+        father.value.trim() === "" ||
+        category.value === "" ||
+        gender.value === ""
+    ) {
         alert("Fill all fields");
         return;
     }
@@ -70,7 +79,8 @@ saveBtn.addEventListener("click", async () => {
         await addDoc(collection(db, "students"), {
             name: name.value,
             father: father.value,
-            category: category.value
+            category: category.value,
+            gender: gender.value
         });
 
         alert("Student Added");
@@ -80,7 +90,8 @@ saveBtn.addEventListener("click", async () => {
         await updateDoc(doc(db, "students", editedStudent.value), {
             name: name.value,
             father: father.value,
-            category: category.value
+            category: category.value,
+            gender: gender.value
         });
 
         alert("Student Updated");
@@ -93,6 +104,7 @@ saveBtn.addEventListener("click", async () => {
     name.value = "";
     father.value = "";
     category.selectedIndex = 0;
+    gender.selectedIndex = 0;
 
     loadStudents();
 
@@ -108,13 +120,20 @@ window.deleteStudent = async function (id) {
 
 };
 
-window.editStudent = function (id, studentName, studentFather, studentCategory) {
+window.editStudent = function (
+    id,
+    studentName,
+    studentFather,
+    studentCategory,
+    studentGender
+) {
 
     editedStudent.value = id;
 
     name.value = studentName;
     father.value = studentFather;
     category.value = studentCategory;
+    gender.value = studentGender;
 
     saveBtn.textContent = "Update Student";
     cancelBtn.style.display = "inline-block";
@@ -128,6 +147,7 @@ cancelBtn.addEventListener("click", () => {
     name.value = "";
     father.value = "";
     category.selectedIndex = 0;
+    gender.selectedIndex = 0;
 
     saveBtn.textContent = "Save Student";
     cancelBtn.style.display = "none";

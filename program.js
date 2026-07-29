@@ -10,6 +10,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const programInput = document.getElementById("programName");
+const category = document.getElementById("category");
+const group = document.getElementById("group");
+
 const saveBtn = document.getElementById("saveProgram");
 const programList = document.getElementById("programList");
 
@@ -19,15 +22,21 @@ const searchProgram = document.getElementById("searchProgram");
 
 saveBtn.addEventListener("click", async () => {
 
-    if (programInput.value.trim() === "") {
-        alert("Enter Program Name");
+    if (
+        programInput.value.trim() === "" ||
+        category.value === "" ||
+        group.value === ""
+    ) {
+        alert("Fill all fields");
         return;
     }
 
     if (edited.value === "") {
 
         await addDoc(collection(db, "programs"), {
-            name: programInput.value
+            name: programInput.value,
+            category: category.value,
+            group: group.value
         });
 
         alert("Program Saved Successfully!");
@@ -35,7 +44,9 @@ saveBtn.addEventListener("click", async () => {
     } else {
 
         await updateDoc(doc(db, "programs", edited.value), {
-            name: programInput.value
+            name: programInput.value,
+            category: category.value,
+            group: group.value
         });
 
         alert("Program Updated Successfully!");
@@ -46,6 +57,8 @@ saveBtn.addEventListener("click", async () => {
     }
 
     programInput.value = "";
+    category.selectedIndex = 0;
+    group.selectedIndex = 0;
 
     loadPrograms();
 
@@ -57,7 +70,7 @@ async function loadPrograms() {
 
     programList.innerHTML = "";
 
-    const keyword = searchProgram ? searchProgram.value.toLowerCase() : "";
+    const keyword = searchProgram.value.toLowerCase();
 
     snap.forEach((programDoc) => {
 
@@ -68,14 +81,23 @@ async function loadPrograms() {
         programList.innerHTML += `
         <tr>
             <td>${p.name}</td>
+            <td>${p.category || "-"}</td>
+            <td>${p.group || "-"}</td>
             <td>
-                <button onclick="editProgram('${programDoc.id}','${p.name}')">
+
+                <button onclick="editProgram(
+                    '${programDoc.id}',
+                    '${p.name}',
+                    '${p.category || ""}',
+                    '${p.group || ""}'
+                )">
                     Edit
                 </button>
 
                 <button onclick="deleteProgram('${programDoc.id}')">
                     Delete
                 </button>
+
             </td>
         </tr>
         `;
@@ -94,11 +116,18 @@ window.deleteProgram = async function(id) {
 
 }
 
-window.editProgram = function(id, name) {
+window.editProgram = function(
+    id,
+    name,
+    programCategory,
+    programGroup
+) {
 
     edited.value = id;
 
     programInput.value = name;
+    category.value = programCategory;
+    group.value = programGroup;
 
     saveBtn.textContent = "Update Program";
 
@@ -111,6 +140,8 @@ cancelBtn.addEventListener("click", () => {
     edited.value = "";
 
     programInput.value = "";
+    category.selectedIndex = 0;
+    group.selectedIndex = 0;
 
     saveBtn.textContent = "Save Program";
 
@@ -118,8 +149,6 @@ cancelBtn.addEventListener("click", () => {
 
 });
 
-if (searchProgram) {
-    searchProgram.addEventListener("keyup", loadPrograms);
-}
+searchProgram.addEventListener("keyup", loadPrograms);
 
 loadPrograms();
